@@ -24,11 +24,15 @@ export class CoffeesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
+    // it could impact performance
+    // console.log(typeof id);
     return this.coffeesService.findOne(id);
   }
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
+    // it could impact performance
+    // console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
   }
 
