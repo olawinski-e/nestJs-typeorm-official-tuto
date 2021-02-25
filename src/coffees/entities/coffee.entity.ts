@@ -18,6 +18,9 @@ export class Coffee {
   @Column()
   brand: string;
 
+  @Column({ default: 0 })
+  recommendations: number;
+
   @JoinTable() // 👈 Join the 2 tables - only the OWNER-side does this
   @ManyToMany((type) => Flavor, (flavor) => flavor.coffees, {
     cascade: true, // ['insert]
